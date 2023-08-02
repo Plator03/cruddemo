@@ -22,13 +22,28 @@ public class CruddemoApplication {
         return runner -> {
 //           createStudent(studentDAO);
 
-//            createMultipleStudents(studentDAO);
-//            queryForStudens(studentDAO);
+            createMultipleStudents(studentDAO);
+//            queryForStud ens(studentDAO);
 //            queryForStudensByLastName(studentDAO);
-            updateStudent(studentDAO);
+//            updateStudent(studentDAO);
+//            deleteStudent(studentDAO);
+//            deleteAllStudents(studentDAO);
 
 //            System.out.println(studentDAO.findById(2));
         };
+    }
+
+    private void deleteAllStudents(StudentDAO studentDAO) {
+        System.out.println("Deleting all students");
+        int numRowsDeleted = studentDAO.deleteAll();
+        System.out.println("Deleted row count: " + numRowsDeleted);
+    }
+
+    private void deleteStudent(StudentDAO studentDAO) {
+        int studentId = 3;
+        System.out.println("Deleting student with id: " + studentId);
+        studentDAO.delete(studentId);
+
     }
 
     private void updateStudent(StudentDAO studentDAO) {
